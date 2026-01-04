@@ -100,24 +100,28 @@ class THelperFunctions {
         .orientation == Orientation.portrait;
   }
 
-  static Size screenSize() {
-    return MediaQuery
-        .of(Get.context!)
-        .size;
+  static Size screenSize([BuildContext? context]) {
+    final ctx = context ?? Get.context;
+    if (ctx == null) {
+      throw Exception('BuildContext is required. Either pass context parameter or ensure Get.context is available.');
+    }
+    return MediaQuery.of(ctx).size;
   }
 
-  static double screenHeight() {
-    return MediaQuery
-        .of(Get.context!)
-        .size
-        .height;
+  static double screenHeight([BuildContext? context]) {
+    final ctx = context ?? Get.context;
+    if (ctx == null) {
+      throw Exception('BuildContext is required. Either pass context parameter or ensure Get.context is available.');
+    }
+    return MediaQuery.of(ctx).size.height;
   }
 
-  static double screenWidth() {
-    return MediaQuery
-        .of(Get.context!)
-        .size
-        .width;
+  static double screenWidth([BuildContext? context]) {
+    final ctx = context ?? Get.context;
+    if (ctx == null) {
+      throw Exception('BuildContext is required. Either pass context parameter or ensure Get.context is available.');
+    }
+    return MediaQuery.of(ctx).size.width;
   }
 
   static String getFormattedDate(DateTime date, {String format = 'dd MMM yyyy'}) {
